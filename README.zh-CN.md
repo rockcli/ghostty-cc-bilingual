@@ -16,6 +16,10 @@
 
 > **终端兼容性提示：** 双向自动注入依赖 macOS 上的 **Ghostty 1.3+**（AppleScript 分屏与输入控制）；但只看译文的 `--watch-only` 模式可运行在**任意终端**（`iTerm2`、`WezTerm`、`tmux`、`Terminal.app`），且改写 `translate.py` 中的提示词即可适配日/韩/德/西等其他语种。
 
+<p align="center">
+  <img src="assets/demo.png" alt="ghostty-cc-bilingual 分屏效果截图：左侧英文 Claude Code，右侧中文双语对照副屏" width="100%">
+</p>
+
 ```text
 ┌───────────────────────────┬───────────────────────────────────────┐
 │ 面板1: claude             │ 面板2: ghostty-cc-bilingual           │
@@ -26,6 +30,14 @@
 │                           │   └─ 🇨🇳 中文译文（ANSI Markdown 渲染） │
 └───────────────────────────┴───────────────────────────────────────┘
 ```
+
+## 效果演示
+
+<p align="center">
+  <img src="assets/demo.gif" alt="ghostty-cc-bilingual 交互演示：输入中文、英文预览、Ghostty 注入验证与 ANSI Markdown 中文译文" width="100%">
+</p>
+
+<sub>在右侧副屏输入中文 → 反显展示中英对照 → 经 Ghostty 注入左侧面板 1（<code>claude --model haiku</code>）并回读验证 → 实时渲染 ANSI Markdown 与对齐中文表格。</sub>
 
 ## 核心特性
 

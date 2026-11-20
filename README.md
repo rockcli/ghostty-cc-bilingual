@@ -16,6 +16,10 @@ Keep **Pane 1** running native English `claude` (stable prompts, lower token ove
 
 > **Terminal flexibility:** Bidirectional injection requires **Ghostty 1.3+** on macOS (AppleScript split & input support). However, `--watch-only` works in **any terminal** (`iTerm2`, `WezTerm`, `tmux`, `Terminal.app`) as a read-only translated reply viewer, and the system prompts in `translate.py` can be customized for other language pairs (Japanese, Korean, German, Spanish, etc.).
 
+<p align="center">
+  <img src="assets/demo.png" alt="ghostty-cc-bilingual split-pane screenshot: English Claude Code on the left, Chinese bilingual side pane on the right" width="100%">
+</p>
+
 ```text
 ┌───────────────────────────┬───────────────────────────────────────┐
 │ Pane 1: claude            │ Pane 2: ghostty-cc-bilingual          │
@@ -26,6 +30,14 @@ Keep **Pane 1** running native English `claude` (stable prompts, lower token ove
 │                           │   └─ 🇨🇳 Chinese translation (ANSI MD) │
 └───────────────────────────┴───────────────────────────────────────┘
 ```
+
+## Demo
+
+<p align="center">
+  <img src="assets/demo.gif" alt="ghostty-cc-bilingual live workflow: Chinese input, English preview, verified Ghostty injection, and ANSI Markdown Chinese reply" width="100%">
+</p>
+
+<sub>Type Chinese in Pane 2 → inspect the reverse-video English preview → verified Ghostty injection into Pane 1 (<code>claude --model haiku</code>) → real-time ANSI Markdown &amp; CJK-aligned table translation.</sub>
 
 ## Features
 
