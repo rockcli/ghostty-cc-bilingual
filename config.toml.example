@@ -1,0 +1,38 @@
+# ghostty-cc-bilingual 翻译配置样例。复制为 config.toml 后按需修改。
+# chain: 按顺序尝试，前面的 provider 失败自动 fallback 到下一个。
+# 没有对应 API key（或 api_key_env 为空）的 provider 按各自规则处理：
+#   api_key_env 为空 → 不发鉴权头（用于本地服务）
+#   api_key_env 非空但环境变量缺失 → 该 provider 视为不可用，跳到下一个
+chain = ["deepseek"]
+
+# 可选：本地小模型（原生 ollama 接口 + 关闭思考）
+[local]
+# 原生 ollama 接口：可关思考(think)并返回 load/eval 明细（OpenAI 兼容接口两者都没有）
+api = "ollama"
+think = false
+base_url = "http://127.0.0.1:11435/v1"
+model = "qwen3.5:9b-q4_K_M"
+api_key_env = ""
+timeout = 180
+[deepseek]
+base_url = "https://api.deepseek.com"
+model = "deepseek-flash"
+api_key_env = "DEEPSEEK_API_KEY"
+timeout = 60
+
+# 可选：Gemini 原生 REST（需要 GEMINI_API_KEY）
+# [gemini]
+# base_url = "https://generativelanguage.googleapis.com/v1beta"
+# model = "gemini-2.5-flash"
+# api_key_env = "GEMINI_API_KEY"
+# timeout = 60
+
+[display]
+# 副屏每段文本的最大显示字符数（翻译仍是全文，只截显示）
+max_chars = 2000
+# 是否在副屏显示英文原文（默认关：原文面板1里就有）
+show_source = false
+# 加粗保真策略：fast=只翻一次最快(加粗可能不全) / balanced=段落返修 / exact=缺就整篇重建
+bold_fidelity = "fast"
+# 中文译文是否渲染 markdown（false = 过滤 md 语法标记）
+md_render = true

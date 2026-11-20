@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 本机端口 11435 → 远端 11434。同样改 your-server 后 load。 -->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.example.ollama-tunnel</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/bin/ssh</string>
+    <string>-o</string><string>BatchMode=yes</string>
+    <string>-o</string><string>ExitOnForwardFailure=yes</string>
+    <string>-o</string><string>ServerAliveInterval=60</string>
+    <string>-o</string><string>ServerAliveCountMax=3</string>
+    <string>-N</string>
+    <string>-L</string><string>11435:127.0.0.1:11434</string>
+    <string>your-server</string>
+  </array>
+  <key>RunAtLoad</key><true/>
+  <key>KeepAlive</key><true/>
+  <key>ThrottleInterval</key><integer>10</integer>
+  <key>StandardOutPath</key><string>/tmp/ollama-tunnel.log</string>
+  <key>StandardErrorPath</key><string>/tmp/ollama-tunnel.log</string>
+</dict>
+</plist>
